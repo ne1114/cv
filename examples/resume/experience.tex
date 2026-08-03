@@ -11,33 +11,25 @@
 
 %---------------------------------------------------------
   \cventry
-    {PE1 Team Lead} % Job title
+    {Product Engineer $\rightarrow$ Team Lead, Foundation Team} % Job title
     {Gloud} % Organization
     {Seoul, South Korea} % Location
-    {Nov. 2024 -- Present} % Date(s)
+    {Aug. 2024 -- Jul. 2026} % Date(s)
     {
       \begin{cvitems}
-        \item {Architected and currently leading the development of a proprietary web-based Dental CAD platform — a core pillar of the company’s product vision — designed to replace costly third-party software (e.g., 3Shape, Exocad). The system leverages custom AI models to accelerate the design process for aesthetic dental restorations. }
-        \item {Built a fully in-house 3D slicing engine from scratch to replace third-party tools, seamlessly integrated with the web-based workflow. The system improves slicing speed and establishes the foundation for future automation.}
-        \item {Managed the end-to-end development of a Raspberry Pi–based control module, a core component of the company’s next-generation 3D printer line. The system enables remote power, network, and camera control via a central admin dashboard, reducing on-site maintenance needs and production costs.}
-        \item {Refactored a monolithic architecture — previously built on a single domain and shared codebase — into modularized domains and isolated repositories, eliminating cross-service dependencies and significantly improving development velocity.}
-        \item {Redesigned the platform’s UI/UX, data structures, and operational pipeline, dramatically reducing overhead and improving order-processing efficiency for internal operation teams.}
-        \item {Spearheaded a complete redesign of the payment system, introducing subscription models, rentals, and a prepaid credit system, which simplified the user experience and reduced payment-related support tickets.}
-        \item {Developed an AI-powered sales support agent that provides real-time, context-aware client insights through a chat interface, effectively eliminating the need for additional in-house support hires.}
-        \item {Promoted AI-assisted development practices and knowledge sharing within the team, improving development velocity and product quality through faster experimentation and better-informed decision making.}
-        \item {Led a 5–7 member engineering team, implementing agile workflows, structured project management (GitHub–Google Chat integration), and CI/CD automation across three applications.}
-        \item {Drove a security overhaul by introducing a role-based access control (RBAC) system and securing publicly exposed storage endpoints, eliminating major vulnerabilities.}
-      \end{cvitems}
-    }
-
-  \cventry
-    {Product Engineer} % Job title
-    {Gloud} % Organization
-    {Seoul, South Korea} % Location
-    {Aug. 2024 -- Nov. 2024} % Date(s)
-    {
-      \begin{cvitems}
-        \item {Joined as a product engineer via the acquisition of Steinfeld and was promoted to Team Lead in Nov 2024.}
+        \item {Gloud puts resin 3D printers in dental clinics and runs the web service behind them: a clinic submits a case, Gloud designs the restoration in real time, slices it, and prints it on the clinic’s own printer — collapsing a two-visit crown procedure into a single visit.}
+        \item {Joined through Gloud’s acquisition of Steinfeld, promoted to Team Lead within three months, and tasked by the CTO with turning around the engineering org and the order platform; later handed the web service to another lead to build the company’s web-based AI CAD product.}
+        \item {\textbf{AI CAD Platform}\enspace Led the company’s next product bet — a web-based CAD tool that grafts custom AI onto a conventional veneer design workflow, replacing the steps designers spent the most time on — carrying over 3D prosthetics generation work from Steinfeld. Internal designers use it in production for veneer cases, cutting per-case design time by more than half versus third-party CAD (3Shape, Exocad).}
+        \item {\textbf{Ops AI Agent}\enspace Built an LLM agent that drafts replies to clinic inquiries for the operations team, retrieving from an internal knowledge base kept current by a daily job that diffs new chat logs and documents against it and routes proposed edits to a human reviewer; operators approve every draft before it is sent, and the team adopted it as a daily tool.}
+        \item {\textbf{Sales AI Agent}\enspace Answered a request for additional sales-support headcount by shipping an agent instead — built with an intern on the Gemini API with tool calling — that pulls a clinic’s recent order history and past complaints from production data so reps can prepare before a visit.}
+        \item {\textbf{Architecture}\enspace Untangled a single codebase in which clinic, lab, and admin users were separated only by env vars and account type — where any change risked all three — into three domain-separated applications, then consolidated them into a monorepo that restored code sharing for AI features without reintroducing coupling; the result was independent deploys, a smaller blast radius, and an end to merge contention.}
+        \item {\textbf{Order Operations}\enspace Rebuilt the order pipeline — absorbing clinic order peaks, routing cases to in-house designers and external labs for real-time design, then through order review, design review, slicing, and print — so operations ran on 4 people instead of \textasciitilde10 while the clinic base grew roughly 10$\times$ over two years. Order-scoped messaging with read and ownership state replaced a time-ordered chat feed and ad-hoc KakaoTalk threads, and clinics gained direct order-status visibility instead of asking by chat.}
+        \item {\textbf{Payments}\enspace Redesigned the payment system around subscriptions, rentals, and prepaid credits, retiring an unversioned scheme whose recurring monthly reconciliation errors forced engineers to patch records directly in SQL; that manual intervention fell to rare exceptions.}
+        \item {\textbf{Printer Control}\enspace Designed a Raspberry Pi control module — now in volume production in the company’s next-generation 3D printer line — that took printer control in-house from an outsourced firmware vendor and consolidated remote power, print-command dispatch over MQTT, and live camera streaming onto a single board, removing add-on hardware at customer sites; coordinated the hardware team and vendor through design, testing, and rollout.}
+        \item {\textbf{Slicing Pipeline}\enspace Directed a team member in building an in-house Python 3D slicing engine that moved slicing into the web workflow, eliminating a manual export--desktop-slice--re-upload round trip, and bound slicing profiles to order type to remove a recurring source of operator error.}
+        \item {\textbf{Team \& Delivery}\enspace Restructured and rebuilt the engineering team after all six original members departed, hiring 12 engineers — most of them new graduates — and growing product engineering to 15; led the resulting 7-person Foundation Team on the company’s longer-horizon bets. Moved releases from batched biweekly deploys to continuous deploy on merge to main, backed by backward-compatibility and testing practices the team could hold to.}
+        \item {\textbf{AI-Assisted Development}\enspace Made agent-assisted work a team standard: structured the codebase and conventions (agents.md, shared skills) so agent output stayed within guardrails, set up shared MCP configuration per repository so everyone worked from one environment, and automated code review and documentation.}
+        \item {\textbf{Security}\enspace Introduced role-based access control on a platform where authorization had lived only in the frontend, and enforced storage rules server-side so uploaded scans and order attachments were no longer readable across accounts.}
       \end{cvitems}
     }
 
@@ -49,12 +41,12 @@
     {Aug. 2021 -- Aug. 2024} % Date(s)
     {
       \begin{cvitems}
-        \item {Early engineering hire (\#5) who developed the core AI-driven product from the ground up, directly contributing to the company’s acquisition by Gloud in early 2025.}
-        \item {Co-architected an end-to-end AI pipeline that automatically generates 3D dental crown designs from intraoral scans, reducing the design process from hours to under five minutes.}
-        \item {Evaluated, benchmarked, and optimized over ten 2D and 3D generative and segmentation models to identify the highest-performing algorithms for each stage of the automated workflow.}
-        \item {Engineered a scalable training pipeline on GCP Vertex AI, enabling rapid parallel experimentation and deployment, which accelerated model iteration and delivery.}
-        \item {Implemented a serverless data preprocessing system capable of handling tens of thousands of 3D scan files in parallel, significantly shortening the model training lifecycle.}
-        \item {Developed and launched a beta web platform (ai.steinfeld.co) for clients to upload scans, receive AI-generated designs, and refine results using an integrated web-based CAD tool.}
+        \item {Early engineering hire (\#5), built the core AI product from the ground up — the technology behind the company’s acquisition by Gloud — and stayed with it afterward as the last of the founding engineering team.}
+        \item {\textbf{AI Pipeline}\enspace Co-architected the pipeline that turns an intraoral scan into a finished crown: locating the prepared tooth, detecting the margin line, generating the crown region, occlusal detail, and body, blending the body back to the margin, reconstructing the mesh, and closing the intaglio into a watertight solid — cutting design from hours to under five minutes.}
+        \item {\textbf{Full-Stack Ownership}\enspace Worked across every layer of that pipeline — model training, pre- and post-processing, training infrastructure, serving, the web platform, and the CAD tool — with stages built in parallel, rotated between engineers, and often attempted by competing approaches before one was chosen.}
+        \item {\textbf{Models \& Validation}\enspace Benchmarked over ten 2D and 3D generative and segmentation models — PointNet++, U-Net and pix2pix, GANs, and SDF-based implicit reconstruction among them — to pick the best fit for each stage, judging output at three levels: model metrics during training, geometric metrics between stages, and expert review of the finished crown.}
+        \item {\textbf{Infrastructure}\enspace Replaced a per-run routine of cloning a prepared VM image with a GCP Vertex AI training pipeline, and cut preprocessing of tens of thousands of 3D scans from days to hours on serverless workers. Regenerating a dataset became cheap enough to do on demand, which turned experimentation from one run at a time into several a day.}
+        \item {\textbf{Web Platform}\enspace Developed and launched a beta web platform for clients to upload scans, receive AI-generated designs, and refine results in an integrated web-based CAD tool.}
       \end{cvitems}
     }
 
@@ -66,10 +58,8 @@
     {Jan. 2021 -- Aug. 2021} % Date(s)
     {
       \begin{cvitems}
-        \item {Developed and maintained C-based firmware for a new washing machine model, contributing to its successful market launch.}
-        \item {Assisted in integrating a new sub-board for an automated detergent dispensing system, implementing the firmware and communication protocols between main and sub-boards.}
-        \item {Implemented additional core features such as remote cycle selection and cloud connectivity.}
-        \item {Authored and submitted four patent applications covering novel appliance technologies, including lint detection via light sensors, laundry clumping detection via accelerometers, water temperature error detection using humidity sensors, and image-based fabric color identification.}
+        \item {Developed C firmware for a new washing machine model through to market launch, including the main--sub-board protocol for an automated detergent dispensing system, remote cycle selection, and cloud connectivity.}
+        \item {Authored and submitted four patent applications on appliance sensing — lint detection via light sensors, laundry clumping via accelerometers, water-temperature fault detection via humidity sensors, and image-based fabric color identification.}
       \end{cvitems}
     }
 
@@ -81,10 +71,8 @@
     {May 2019 -- Jul. 2019} % Date(s)
     {
       \begin{cvitems}
-        \item {Contributed to the development of a smart home device (featured at CES 2019 \& 2020) by writing firmware in C.}
-        \item {Implemented key functionalities including VoIP communication, remote Wi-Fi setup, and automatic lighting control based on ambient light data.}
-        \item {Integrated and programmed multiple sensors (environmental, light, PIR, accelerometer, and microphone) to enable core device features.}
-        \item {Identified and fixed critical memory leaks, significantly improving device stability and performance.}
+        \item {Wrote C firmware for a smart home device featured at CES 2019 \& 2020, implementing VoIP communication, remote Wi-Fi setup, and ambient-light-driven automatic lighting across five integrated sensors.}
+        \item {Identified and fixed critical memory leaks that were destabilizing the device in long-running use.}
       \end{cvitems}
     }
 %---------------------------------------------------------
